@@ -3,20 +3,24 @@
     <button clrTabLink>Dashboard</button>
     <ng-template [(clrIfActive)]="dashboardActive">
       <clr-tab-content>
-        <div style="margin-top:20px;">
-          <span class="spinner spinner-inline"></span>
-          <span>
-            Loading...
-          </span>
-          <ul class="list-unstyled">
-            <li *ngFor="let user of users">
-              <div>
-                <span><strong>{{ user.name | uppercase }}</strong></span>
-                <br />
-                <span>{{ user.email }}</span>
-              </div>
-            </li>
-          </ul>
+        <div class="clr-row" style="margin-top:20px;">
+          <div class="clr-col-4">
+            <span class="spinner spinner-inline"></span>
+            <span>
+              Loading...
+            </span>
+          </div>
+          <div class="clr-col-6">
+            <ul class="list-unstyled">
+              <li *ngFor="let user of users">
+                <div>
+                  <span><strong>{{ user.name | uppercase }}</strong></span>
+                  <br />
+                  <span>{{ user.email }}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </clr-tab-content>
     </ng-template>
