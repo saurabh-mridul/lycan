@@ -1,0 +1,35 @@
+<clr-tabs>
+  <clr-tab>
+    <button clrTabLink>Dashboard</button>
+    <ng-template [(clrIfActive)]="dashboardActive">
+      <clr-tab-content>
+        <div style="margin-top:20px;">
+          <span class="spinner spinner-inline"></span>
+          <span>
+            Loading...
+          </span>
+          <ul class="list-unstyled">
+            <li *ngFor="let user of users">
+              <div>
+                <span><strong>{{ user.name | uppercase }}</strong></span>
+                <br />
+                <span>{{ user.email }}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </clr-tab-content>
+    </ng-template>
+  </clr-tab>
+
+  <clr-tab>
+    <button clrTabLink>Activities</button>
+    <ng-template [(clrIfActive)]="activitiesActive">
+      <clr-tab-content>
+        <div style="margin-top:20px;">
+          <app-activity></app-activity>
+        </div>
+      </clr-tab-content>
+    </ng-template>
+  </clr-tab>
+</clr-tabs>
