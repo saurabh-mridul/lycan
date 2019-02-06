@@ -1,4 +1,14 @@
-<clr-vertical-nav>
-  <a clrVerticalNavLink routerLink="users" routerLinkActive="active">Users</a>
-  <a clrVerticalNavLink routerLink="posts" routerLinkActive="active">Posts</a>
-</clr-vertical-nav>
+<section class="sidenav-content">
+  <section class="nav-group">
+    <label>Default Nav Element</label>
+    <ul class="nav-list">
+      <li><a routerLink="/users" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Users</a></li>
+      <li><a routerLink="/posts" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Posts</a></li>
+      <li><a class="nav-link">Link 2</a></li>
+      <li><a class="nav-link">Link 3</a></li>
+      <li><a class="nav-link">Link 4</a></li>
+      <li><a class="nav-link">Link 5</a></li>
+      <li><a class="nav-link">Link 6</a></li>
+    </ul>
+  </section>
+</section>

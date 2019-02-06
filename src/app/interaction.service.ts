@@ -5,5 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class InteractionService {
 
+  private messageSource = new BehaviorSubject(undefined);
+  currentMessage$ = this.messageSource.asObservable();
+
   constructor() { }
+
+  updateInteraction(message: string) {
+    this.messageSource.next(message)
+  }
 }
