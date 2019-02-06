@@ -10,34 +10,25 @@
   <clr-tab>
     <button clrTabLink>Dashboard</button>
     <clr-tab-content *clrIfActive="true">
-      <ng-template [(clrIfActive)]="dashboardActive">
-        <clr-tab-content>
-          <div class="clr-row" style="margin-top:10px;">
-            <div class="clr-col-12" *ngIf="!users?.length > 0">
-              <span class="spinner spinner-inline"></span>
-              <span>
-                Loading...
-              </span>
-            </div>
-            <div class="clr-col-4">
-              <ul class="list-unstyled">
-                <li *ngFor="let user of users">
-                  <div>
-                    <span><strong>{{ user.name | uppercase }}</strong></span>
-                    <br />
-                    <span>{{ user.email }}</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="clr-col-6">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo accusantium similique alias, rerum
-              reprehenderit iste quisquam blanditiis numquam in ex, voluptatum quo inventore nobis minus, asperiores
-              odio obcaecati reiciendis nesciunt.
-            </div>
-          </div>
-        </clr-tab-content>
-      </ng-template>
+      <div class="clr-row" style="margin-top:10px;">
+        <div class="clr-col-12" *ngIf="!users?.length > 0">
+          <span class="spinner spinner-inline"></span>
+          <span>
+            Loading...
+          </span>
+        </div>
+        <div class="clr-col-4">
+          <clr-tree-node *ngFor="let user of users">
+            <button (click)="changeUserHandler(user)" class="clr-treenode-link" [class.active]="user.isSelected">
+                <clr-icon [attr.shape]="'dashboard'"></clr-icon>
+              {{user.name}}
+            </button>
+          </clr-tree-node>
+        </div>
+        <div class="clr-col-6">
+          <app-details ></app-details>
+        </div>
+      </div>
     </clr-tab-content>
   </clr-tab>
   <clr-tab>
