@@ -10,25 +10,35 @@ import { User } from '../models/entities';
 })
 export class DashboardComponent implements OnInit {
 
-  users: Array<User>;
-  selectedStack: string;
-  constructor(private service: DataService, private route: ActivatedRoute) { }
+  selectedUser: User;
+  selectedUserId: string;
+  posts: object;
+  constructor(private route: ActivatedRoute, private service: DataService) { }
 
-  private changeUserHandler(user: User) {
-    user.isSelected = true;
-    this.users.forEach(u => u.isSelected = false);
-    console.log(JSON.stringify(user));
+  private InitializeDashboard() {
+    if (this.selectedUserId) {
+      this.service.getUser(this.selectedUserId)
+        .subscribe(user => this.selectedUser = user);
+
+      this.service.getPosts(this.selectedUserId)
+        .subscribe(data => this.posts = data);
+    }
+  }
+
+  private changePostHandler(post: Object) {
+    //post.isSelected = true;
+    //this.posts.forEach(p => p.isSelected = false);
+    console.log(JSON.stringify(post));
   }
 
   ngOnInit() {
     console.log(`%cdashboard loaded`, "color:orange;font-weight:bold");
+
     this.route.params
       .subscribe(prms => {
-        this.selectedStack = prms.name;
-        console.log(this.selectedStack);
+        this.selectedUserId = prms.name;
+        this.InitializeDashboard();
+        console.log(this.selectedUserId);
       });
-
-    this.service.getUsers()
-      .subscribe(data => this.users = data);
   }
 }

@@ -1,40 +1,41 @@
-<clr-alert [clrAlertType]="'success'">
+<clr-alert *ngIf="selectedUser" [clrAlertType]="'success'">
   <clr-alert-item>
     <span class="alert-text">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, blanditiis?
+      {{selectedUser | json}}
     </span>
   </clr-alert-item>
 </clr-alert>
 
 <clr-tabs>
   <clr-tab>
-    <button clrTabLink>Dashboard</button>
+    <button clrTabLink>Posts</button>
     <clr-tab-content *clrIfActive="true">
       <div class="clr-row" style="margin-top:10px;">
-        <div class="clr-col-12" *ngIf="!users?.length > 0">
+        <div class="clr-col-12" *ngIf="selectedUser && !posts?.length > 0">
           <span class="spinner spinner-inline"></span>
           <span>
             Loading...
           </span>
         </div>
-        <div class="clr-col-4">
-          <clr-tree-node *ngFor="let user of users">
-            <button (click)="changeUserHandler(user)" class="clr-treenode-link" [class.active]="user.isSelected">
-                <clr-icon [attr.shape]="'dashboard'"></clr-icon>
-              {{user.name}}
+        <div class="clr-col-12">
+          <clr-tree-node *ngFor="let post of posts" style="margin-left:-1.25rem;">
+            <button (click)="changePostHandler(post)" class="clr-treenode-link" [class.active]="post.isSelected">
+              <span><strong>UserId: {{post.userId}} | PostId: {{post.id}}</strong></span>
+              <br />
+              <span>{{post.title}}</span>
             </button>
           </clr-tree-node>
         </div>
-        <div class="clr-col-6">
-          <app-details ></app-details>
-        </div>
+        <!-- <div class="clr-col-6">
+          <app-details></app-details>
+        </div> -->
       </div>
     </clr-tab-content>
   </clr-tab>
   <clr-tab>
     <button clrTabLink>Activities</button>
     <clr-tab-content *clrIfActive>
-      <app-activity></app-activity>
+      <app-activity [currentUser]="selectedUser"></app-activity>
     </clr-tab-content>
   </clr-tab>
 </clr-tabs>

@@ -1,16 +1,27 @@
 <div style="margin-top:10px;">
-  <div *ngIf="!posts?.length > 0">
+  <div *ngIf="!activities?.length > 0">
     <span class="spinner spinner-inline"></span>
     <span>
       Loading...
     </span>
   </div>
 
-  <ul class="list-unstyled">
-    <li *ngFor="let post of posts">
-      <div>
-        <span>{{ post | json }}</span>
-      </div>
-    </li>
-  </ul>
+  <table class="table table-no-border">
+    <thead>
+      <tr>
+        <th class="left">Index</th>
+        <th class="left">User Id</th>
+        <th class="left">Post Id</th>
+        <th class="left">Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let activity of activities; let i=index;">
+        <td class="left">{{i}}</td>
+        <td class="left">{{activity.userId}}</td>
+        <td class="left">{{activity.id}}</td>
+        <td class="left">{{activity.title}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
