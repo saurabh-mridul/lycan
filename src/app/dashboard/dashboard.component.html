@@ -17,7 +17,7 @@
             Loading...
           </span>
         </div>
-        <div class="clr-col-12">
+        <div class="clr-col-5">
           <clr-tree-node *ngFor="let post of posts" style="margin-left:-1.25rem;">
             <button (click)="changePostHandler(post)" class="clr-treenode-link" [class.active]="post.isSelected">
               <span><strong>UserId: {{post.userId}} | PostId: {{post.id}}</strong></span>
@@ -26,16 +26,16 @@
             </button>
           </clr-tree-node>
         </div>
-        <!-- <div class="clr-col-6">
-          <app-details></app-details>
-        </div> -->
+        <div class="clr-col-7">
+          <app-details [CurrentPost]="selectedPost"></app-details>
+        </div>
       </div>
     </clr-tab-content>
   </clr-tab>
   <clr-tab>
     <button clrTabLink>Activities</button>
     <clr-tab-content *clrIfActive>
-      <app-activity [currentUser]="selectedUser"></app-activity>
+      <app-activity [CurrentUser]="selectedUser"></app-activity>
     </clr-tab-content>
   </clr-tab>
 </clr-tabs>

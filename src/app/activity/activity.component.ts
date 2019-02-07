@@ -9,12 +9,12 @@ import { User } from '../models/entities';
 })
 export class ActivityComponent implements OnInit {
 
-  @Input() currentUser: User;
+  @Input() CurrentUser: User;
   activities: object;
   constructor(private service: DataService) { }
 
   ngOnInit() {
-    this.service.getToDos(this.currentUser.id.toString())
+    this.service.getToDos(this.CurrentUser.id.toString())
       .subscribe(data => {
         this.activities = data;
       });

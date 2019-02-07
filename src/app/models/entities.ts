@@ -28,3 +28,16 @@ export class User {
   company: Company;
   isSelected: boolean;
 }
+
+export class Post {
+  id: number;
+  userId: number;
+  title: String;
+  isSelected: boolean;
+}
+
+export class Comment {
+  id: number;
+  postId: number;
+  name: String;
+}
