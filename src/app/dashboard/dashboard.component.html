@@ -7,12 +7,12 @@
   </clr-alert-item>
 </clr-alert>
 
-<clr-tabs>
+<clr-tabs *ngIf="selectedUser">
   <clr-tab>
     <button clrTabLink>Posts</button>
     <clr-tab-content *clrIfActive="true">
       <div class="clr-row" style="margin-top:10px;">
-        <div class="clr-col-12" *ngIf="selectedUser && !posts?.length > 0">
+        <div class="clr-col-12" *ngIf="!posts?.length > 0">
           <span class="spinner spinner-inline"></span>
           <span>
             Loading...

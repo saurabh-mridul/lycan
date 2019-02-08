@@ -25,6 +25,8 @@ export class DashboardComponent implements OnInit {
 
   private InitializeDashboard() {
     if (this.selectedUserId) {
+      this.clearArray(this.posts);
+
       this.service.getUser(this.selectedUserId)
         .subscribe(user => {
           this.selectedUser = user;
@@ -58,6 +60,14 @@ export class DashboardComponent implements OnInit {
     post.isSelected = true;
     this.posts.forEach(p => p.isSelected = false);
     console.log(JSON.stringify(post));
+  }
+
+  private clearArray<T>(collection: Array<T>) {
+    if(collection){
+      while(collection.length > 0) {
+        collection.pop();
+      }
+    }
   }
 
   ngOnInit() {
