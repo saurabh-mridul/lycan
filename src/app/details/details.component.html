@@ -1,7 +1,9 @@
-<clr-tree-node *ngFor="let comment of comments" style="margin-left:-1.25rem;">
-  <button class="clr-treenode-link">
+<div *ngIf="CurrentPost">
+  <clr-tree-node *ngFor="let comment of comments" style="margin-left:-1.25rem;">
+    <button class="clr-treenode-link">
       <span><strong>CommentId: {{comment.id}}</strong></span>
-      <br/>
+      <br />
       <span>{{ comment.name }}</span>
-  </button>
-</clr-tree-node>
+    </button>
+  </clr-tree-node>
+</div>

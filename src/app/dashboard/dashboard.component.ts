@@ -76,6 +76,7 @@ export class DashboardComponent implements OnInit {
     this.route.params
       .subscribe(prms => {
         this.selectedUserId = prms.name;
+        this.selectedPost = null;
         this.InitializeDashboard();
         console.log(`selected user id: ${this.selectedUserId}`);
       });
