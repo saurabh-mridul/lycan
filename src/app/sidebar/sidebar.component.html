@@ -1,11 +1,12 @@
 <section class="sidenav-content">
   <section class="nav-group">
-    <label>Available Users</label>
+    <input id="tabexample2" type="checkbox">
+    <label for="tabexample2">Available Users</label>
     <ul class="nav-list">
-      <li *ngFor="let user of users">
-        <a class="nav-link" routerLink="{{user.id}}" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          {{user.name}}
-        </a>
+      <li *ngFor="let user of Users">
+        <!-- <span class="status" [style.color]="green"></span> -->
+        <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/home/{{user.id}}">
+          {{user.name}}</a>
       </li>
     </ul>
   </section>

@@ -11,10 +11,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users')
-      .pipe(
-        tap(data => console.log(data)),
-      );
+    return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users');
   }
 
   getUser(userId: string) {

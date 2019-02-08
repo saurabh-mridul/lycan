@@ -20,7 +20,9 @@ const routes: Routes = [
   },
   {
     path: 'home/:name',
-    component: HomeComponent
+    component: HomeComponent,
+    pathMatch:'full'
+
   },
   {
     path: '**',

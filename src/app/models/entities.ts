@@ -41,3 +41,11 @@ export class Comment {
   postId: number;
   name: String;
 }
+
+export class AlertNotification {
+  alertType: string;
+  isOpen: boolean;
+  isClosable: boolean;
+  content: string;
+  recievedTime: string;
+}
