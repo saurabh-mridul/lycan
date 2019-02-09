@@ -42,6 +42,12 @@ export class Comment {
   name: String;
 }
 
+export class Album {
+  id: number;
+  userId: number;
+  title:string;
+}
+
 export class AlertNotification {
   alertType: string;
   isOpen: boolean;

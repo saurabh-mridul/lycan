@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { User } from '../models/entities';
+import { User, Album } from '../models/entities';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,6 +9,7 @@ import { User } from '../models/entities';
 export class SidebarComponent implements OnInit, OnDestroy {
 
   @Input() Users: Array<User>;
+  @Input() Albums: Array<Album>;
   constructor() { }
 
   ngOnInit() {

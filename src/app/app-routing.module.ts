@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { AlbumComponent } from './album/album.component';
 
 const routes: Routes = [
   {
@@ -12,17 +14,29 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    children: [
+      {
+        path:'users',
+        component: UserComponent
+      },
+      {
+        path: 'albums',
+        component: AlbumComponent
+      },
+      {
+        path:'users/:id',
+        component: UserComponent
+      },
+      {
+        path:'albums:/name',
+        component: UserComponent
+      }
+    ]
   },
   {
     path: 'login',
     component: LoginComponent
-  },
-  {
-    path: 'home/:name',
-    component: HomeComponent,
-    pathMatch:'full'
-
   },
   {
     path: '**',

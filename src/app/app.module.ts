@@ -15,6 +15,8 @@ import { ErrorComponent } from './error/error.component';
 import { HttpErrorInterceptor } from './http-error-interceptor';
 import { LoginComponent } from './login/login.component';
 import { DetailsComponent } from './details/details.component';
+import { UserComponent } from './user/user.component';
+import { AlbumComponent } from './album/album.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DetailsComponent } from './details/details.component';
     DashboardComponent,
     ErrorComponent,
     LoginComponent,
-    DetailsComponent
+    DetailsComponent,
+    UserComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,

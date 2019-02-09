@@ -1,0 +1,43 @@
+<h4>user works</h4>
+<clr-alert [clrAlertType]="responseNotification.alertType" [clrAlertClosable]="responseNotification.isClosable"
+  [(clrAlertClosed)]="!responseNotification.isOpen">
+  <clr-alert-item>
+    <span class="alert-text">
+      {{responseNotification.content}}
+    </span>
+  </clr-alert-item>
+</clr-alert>
+
+<clr-tabs *ngIf="selectedUser">
+  <clr-tab>
+    <button clrTabLink>Posts</button>
+    <clr-tab-content *clrIfActive="true">
+      <div class="clr-row" style="margin-top:10px;">
+        <div class="clr-col-12" *ngIf="!posts?.length > 0">
+          <span class="spinner spinner-inline"></span>
+          <span>
+            Loading...
+          </span>
+        </div>
+        <div class="clr-col-5">
+          <clr-tree-node *ngFor="let post of posts" style="margin-left:-1.25rem;">
+            <button (click)="changePostHandler(post)" class="clr-treenode-link" [class.active]="post.isSelected">
+              <span><strong>UserId: {{post.userId}} | PostId: {{post.id}}</strong></span>
+              <br />
+              <span>{{post.title}}</span>
+            </button>
+          </clr-tree-node>
+        </div>
+        <div class="clr-col-7">
+          <app-details [CurrentPost]="selectedPost"></app-details>
+        </div>
+      </div>
+    </clr-tab-content>
+  </clr-tab>
+  <clr-tab>
+    <button clrTabLink>Activities</button>
+    <clr-tab-content *clrIfActive>
+      <app-activity [CurrentUser]="selectedUser"></app-activity>
+    </clr-tab-content>
+  </clr-tab>
+</clr-tabs>

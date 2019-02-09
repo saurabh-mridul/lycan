@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { User, Post } from './models/entities';
+import { User, Post, Album } from './models/entities';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,10 @@ export class DataService {
 
   getUsers() {
     return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users');
+  }
+
+  getAlbums() {
+    return this.http.get<Album[]>('https://jsonplaceholder.typicode.com/albums');
   }
 
   getUser(userId: string) {
