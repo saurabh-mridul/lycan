@@ -1,5 +1,6 @@
 <div *ngIf="CurrentPost">
-  <clr-tree-node *ngFor="let comment of comments" style="margin-left:-1.25rem;">
+  <input class="clr-input" [(ngModel)]="searchText" placeholder="search text goes here">
+  <clr-tree-node *ngFor="let comment of comments | filter: searchText" style="margin-left:-1.25rem;">
     <button class="clr-treenode-link">
       <span><strong>CommentId: {{comment.id}}</strong></span>
       <br />

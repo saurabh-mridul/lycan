@@ -10,13 +10,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ActivityComponent } from './activity/activity.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
 import { HttpErrorInterceptor } from './services/http-error-interceptor';
 import { LoginComponent } from './login/login.component';
 import { DetailsComponent } from './details/details.component';
 import { UserComponent } from './user/user.component';
 import { AlbumComponent } from './album/album.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,12 +24,12 @@ import { AlbumComponent } from './album/album.component';
     HomeComponent,
     SidebarComponent,
     ActivityComponent,
-    DashboardComponent,
     ErrorComponent,
     LoginComponent,
     DetailsComponent,
     UserComponent,
-    AlbumComponent
+    AlbumComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
