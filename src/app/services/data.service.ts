@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { User, Post, Album } from './models/entities';
+import { User, Post, Album } from '../models/entities';
 
 @Injectable({
   providedIn: 'root'

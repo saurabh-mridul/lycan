@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { User } from '../models/entities';
+import { DataService } from '../services/data.service';
+import { User, Album } from '../models/entities';
 
 @Component({
   selector: 'app-home',
