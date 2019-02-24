@@ -1,3 +1,15 @@
-<p>
-  album works!
-</p>
+<div class="container">
+  <span>Chat Messenger</span>
+  <h4>Hello {{userName }}</h4>
+
+  <div class="container" *ngIf="messages.length > 0" style="margin-top:20px;">
+    <div *ngFor="let message of messages">
+      <span>{{ userName }}: {{message}}</span>
+    </div>
+  </div>
+
+  <div>
+    <input type="text" placeholder="enter message here" class="clr-input" [(ngModel)]="message" required>
+    <button class="btn btn-primary" (click)="sendMessage()" style="margin-left:20px;">Send</button>
+  </div>
+</div>
