@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import * as signalR from '@aspnet/signalr';
+import { ClrWizard } from '@clr/angular';
+// import * as signalR from  'signalr';
 
 @Component({
   selector: 'app-album',
@@ -9,39 +10,49 @@ import * as signalR from '@aspnet/signalr';
 })
 export class AlbumComponent implements OnInit {
 
-  hubConnection: HubConnection;
-  userName = 'Unknown';
+  // hubConnection: signalR.HubConnection;
+  userName = '';
+  groupName = '';
+  loggedIn = false;
   message = '';
   messages: string[] = [];
 
   constructor(private route: ActivatedRoute) { }
 
+  joinGroup() {
+    this.loggedIn = true;
+    console.log(`${this.userName} has logged into ${this.groupName} group.`);
+  }
+
   sendMessage() {
-    console.log('sending message...');
+    console.log(`${this.userName} sending ${this.message} from ${this.groupName} group.`);
 
     const data = `Sent: ${this.message}`;
-    if (this.hubConnection) {
-      this.hubConnection.invoke('Send', data);
-    }
+    // if (this.hubConnection) {
+    //   this.hubConnection.invoke('Send', data);
+    // }
     this.messages.push(this.message);
     this.message = '';
   }
 
   ngOnInit() {
-    this.hubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('https://localhost:9000')
-      .configureLogging(signalR.LogLevel.Information)
-      .build();
+    //  catc this.hubConnection = new signalR.HubConnectionBuilder()
+    //     .withUrl('http://192.168.0.101:9000/signalR')
+    //     .configureLogging(signalR.LogLevel.Information)
+    //     .build();
 
-    this.hubConnection
-      .start()
-      .then(() => console.log('Connection started!'))
-      .catch(err => console.log(`${err} Error while establishing connection :(`));
+    //   this.hubConnection.on('signalR', (message) => {
+    //     this.messages.push(message);
+    //     console.log(message);
+    //   });
 
-    this.hubConnection.on('Send', (message) => {
-      this.messages.push(message);
-    });
-
+    //   this.hubConnection
+    //     .start()
+    //     .then(() => {
+    //       this.hubConnection.invoke("send", "Hello from Angular.", "1234");
+    //       console.log('Connection started!')
+    //     })
+    //     .h(err => console.log(`${err} Error while establishing connection :(`));
   }
 }
 

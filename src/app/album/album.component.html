@@ -1,15 +1,27 @@
 <div class="container">
-  <span>Chat Messenger</span>
-  <h4>Hello {{userName }}</h4>
+  <span><strong>Chat Messenger</strong></span>
 
-  <div class="container" *ngIf="messages.length > 0" style="margin-top:20px;">
-    <div *ngFor="let message of messages">
-      <span>{{ userName }}: {{message}}</span>
+  <div *ngIf="!loggedIn">
+    <div style="margin-top:15px;">
+      <input type="text" placeholder="enter your name" class="clr-input" [(ngModel)]="userName" required>
     </div>
+    <div style="margin-top:15px;">
+      <input type="text" placeholder="enter group name" class="clr-input" [(ngModel)]="groupName" required>
+    </div>
+    <button class="btn btn-primary" (click)="joinGroup()" style="margin-top:20px;">Join Group</button>
   </div>
 
-  <div>
-    <input type="text" placeholder="enter message here" class="clr-input" [(ngModel)]="message" required>
-    <button class="btn btn-primary" (click)="sendMessage()" style="margin-left:20px;">Send</button>
+  <div *ngIf="loggedIn">
+    <h4>Hello {{userName }}</h4>
+    <div class="container" *ngIf="messages.length > 0" style="margin-top:20px;">
+      <div *ngFor="let message of messages">
+        <span>{{ userName }}: {{message}}</span>
+      </div>
+    </div>
+
+    <div>
+      <input type="text" placeholder="enter message here" class="clr-input" [(ngModel)]="message" required>
+      <button class="btn btn-primary" (click)="sendMessage()" style="margin-left:20px;">Send</button>
+    </div>
   </div>
 </div>
