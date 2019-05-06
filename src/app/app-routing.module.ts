@@ -5,6 +5,7 @@ import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { AlbumComponent } from './album/album.component';
+import { OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
 
 const routes: Routes = [
   {
@@ -32,11 +33,16 @@ const routes: Routes = [
         path:'albums:/name',
         component: UserComponent
       }
-    ]
+    ], 
+    //canActivate: [OktaAuthGuard]
   },
   {
-    path: 'login',
+    path: 'logout',
     component: LoginComponent
+  },
+  {
+    path: 'implicit/callback',
+    component: OktaCallbackComponent
   },
   {
     path: '**',

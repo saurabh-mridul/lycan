@@ -52,7 +52,7 @@ export class AlbumComponent implements OnInit {
     //       this.hubConnection.invoke("send", "Hello from Angular.", "1234");
     //       console.log('Connection started!')
     //     })
-    //     .h(err => console.log(`${err} Error while establishing connection :(`));
+    //     .catch(err => console.log(`${err} Error while establishing connection :(`));
   }
 }
 

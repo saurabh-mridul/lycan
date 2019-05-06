@@ -11,16 +11,17 @@
     <button class="btn btn-primary" (click)="joinGroup()" style="margin-top:20px;">Join Group</button>
   </div>
 
-  <div *ngIf="loggedIn">
-    <h4>Hello {{userName }}</h4>
-    <div class="container" *ngIf="messages.length > 0" style="margin-top:20px;">
+  <div *ngIf="loggedIn" style="margin-top:-10px;">
+    <h5>Hello {{userName }}</h5>
+    <div class="container" style="height: 380px; margin-top:20px;">
       <div *ngFor="let message of messages">
         <span>{{ userName }}: {{message}}</span>
       </div>
     </div>
 
     <div>
-      <input type="text" placeholder="enter message here" class="clr-input" [(ngModel)]="message" required>
+      <input type="text" placeholder="enter message here" class="clr-input"
+      [(ngModel)]="message" required style="width:400px;">
       <button class="btn btn-primary" (click)="sendMessage()" style="margin-left:20px;">Send</button>
     </div>
   </div>

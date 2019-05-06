@@ -17,6 +17,7 @@ import { DetailsComponent } from './details/details.component';
 import { UserComponent } from './user/user.component';
 import { AlbumComponent } from './album/album.component';
 import { FilterPipe } from './filter.pipe';
+import { OktaAuthModule } from '@okta/okta-angular';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,12 @@ import { FilterPipe } from './filter.pipe';
     ClarityModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    OktaAuthModule.initAuth({
+      issuer: 'https://dev-932728.oktapreview.com/oauth2/default',
+      redirectUri: 'http://localhost:4200/implicit/callback',
+      clientId: '0oako2ee5sbttEBhj0h7'
+    })
   ],
   providers: [
     {

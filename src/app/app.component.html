@@ -1,2 +1,4 @@
 <div class="progress loop" style="height: 2px;" *ngIf="!isLoading"><progress></progress></div>
+<button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
+<button *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
 <router-outlet></router-outlet>
